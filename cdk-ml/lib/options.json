@@ -1,0 +1,27 @@
+{
+    "autoScaling": {
+        "useAutoScaling": false,
+        "scalableTarget": {
+            "minCapacity": 1,
+            "maxCapacity": 10,
+            "scalableDimension": "sagemaker:variant:DesiredInstanceCount"
+        },
+        "targetTrakingScalingPolicy": {
+            "policyName": "SageMaker-Invocations-ScalingPolicy",
+            "scaleInCooldown": 60,
+            "scaleOutCooldown": 60,
+            "targetValue": 60
+        }
+    },
+    "sageMaker": {
+        "endpoint": {
+            "endpointName": "real-estate-evaluation"
+        },
+        "endpointConfiguration": {
+            "initialInstanceCount": 1,
+            "initialVariantWeight": 1,
+            "instanceType": "ml.c4.large",
+            "variantName": "linear-model"
+        }       
+    }
+}
